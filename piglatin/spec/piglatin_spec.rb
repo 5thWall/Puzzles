@@ -1,4 +1,4 @@
-require 'piglatin'
+require 'piglatin/piglatin'
 
 describe "Pig Latin" do
   describe "#transform_word" do
