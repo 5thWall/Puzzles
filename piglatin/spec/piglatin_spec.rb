@@ -14,5 +14,10 @@ describe "Pig Latin" do
       PigLatin.transform_word("owl").should == "owlway"
       PigLatin.transform_word("uncommon").should == "uncommonway"
     end
+    
+    it "should honor capitalized words" do
+      PigLatin.transform_word("Applejack").should == "Applejackway"
+      PigLatin.transform_word("Rainbow").should == "Ainbowray"
+    end
   end
 end
