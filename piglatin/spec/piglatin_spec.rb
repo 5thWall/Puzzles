@@ -15,6 +15,11 @@ describe "Pig Latin" do
       PigLatin.transform_word("uncommon").should == "uncommonway"
     end
     
+    it "should treat 'y' as a vowel when there are no other vowels" do
+      PigLatin.transform_word("why").should == "ywhay"
+      PigLatin.transform_word("spy").should == "yspay"
+    end
+    
     it "should honor capitalized words" do
       PigLatin.transform_word("Applejack").should == "Applejackway"
       PigLatin.transform_word("Rainbow").should == "Ainbowray"
@@ -29,8 +34,8 @@ describe "Pig Latin" do
     it "should honor punctuation" do
       PigLatin.transform("I don't get it.").should == "Iway on'tday etgay itway."
       PigLatin.transform("Well, I never!").should == "Ellway, Iway evernay!"
-      PigLatin.transform("Why the long face?").should == "Whyay ethay onglay acefay?"
-      PigLatin.transform("Are you a spy?!").should == "Areway ouyay away spyay?!"
+      PigLatin.transform("Why the long face?").should == "Ywhay ethay onglay acefay?"
+      PigLatin.transform("Are you a spy?!").should == "Areway ouyay away yspay?!"
       PigLatin.transform("Awe, horse-apples!").should == "Aweway, orsehay-applesway!"
     end
   end
