@@ -25,5 +25,13 @@ describe "Pig Latin" do
     it "should take a series of words and transform them" do
       PigLatin.transform("The purple pony").should == "Ethay urplepay onypay"
     end
+    
+    it "should honor punctuation" do
+      PigLatin.transform("I don't get it.").should == "Iway on'tday etgay itway."
+      PigLatin.transform("Well, I never!").should == "Ellway, Iway evernay!"
+      PigLatin.transform("Why the long face?").should == "Whyay ethay onglay acefay?"
+      PigLatin.transform("Are you a spy?!").should == "Areway ouyay away spyay?!"
+      PigLatin.transform("Awe, horse-apples!").should == "Aweway, orsehay-applesway!"
+    end
   end
 end

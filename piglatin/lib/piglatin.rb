@@ -1,15 +1,14 @@
 module PigLatin
   def transform_word word
-    is_cap = word.chr.match /[A-Z]/
-    word.match /([^aeiou]*)(\w*)/i
-    first = $1.empty? ? 'w' : $1.downcase
-    second = is_cap ? $2.capitalize : $2
-    "#{second}#{first}ay"
+    word.match /([^aeiou]*)(['a-z]*)/i
+    first = $1.empty? ? 'w' : $1
+    pig = "#{$2}#{first}ay"
+    word.chr.match(/[A-Z]/) ? pig.capitalize : pig.downcase
   end
   
   def transform string
     string.split(' ').map do |s|
-       transform_word s
+      s.gsub(/['a-z]+/i) { |m| transform_word(m) }
      end.inject do |m, s|
        m += " #{s}"
      end
