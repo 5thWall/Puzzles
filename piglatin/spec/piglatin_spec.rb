@@ -20,4 +20,10 @@ describe "Pig Latin" do
       PigLatin.transform_word("Rainbow").should == "Ainbowray"
     end
   end
+  
+  describe "#transform" do
+    it "should take a series of words and transform them" do
+      PigLatin.transform("The purple pony").should == "Ethay urplepay onypay"
+    end
+  end
 end

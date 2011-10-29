@@ -7,5 +7,13 @@ module PigLatin
     "#{second}#{first}ay"
   end
   
-  module_function :transform_word
+  def transform string
+    string.split(' ').map do |s|
+       transform_word s
+     end.inject do |m, s|
+       m += " #{s}"
+     end
+  end
+  
+  module_function :transform_word, :transform
 end
