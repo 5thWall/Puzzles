@@ -9,9 +9,7 @@ module PigLatin
   def transform string
     string.split(' ').map do |s|
       s.gsub(/['a-z]+/i) { |m| transform_word(m) }
-     end.inject do |m, s|
-       m += " #{s}"
-     end
+     end.join " "
   end
   
   module_function :transform_word, :transform
